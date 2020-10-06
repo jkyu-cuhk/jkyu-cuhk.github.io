@@ -503,11 +503,6 @@ function changeSize(){
 }
 function changeMode(){
 	mode = 1-mode;
-	if(mode){
-		document.getElementById("changeModeText").innerHTML = "Change Mode</br>Current: Hard</div>";
-	}else{
-		document.getElementById("changeModeText").innerHTML = "Change Mode</br>Current: Easy</div>";
-	}
 	resetGrid(p);
 	randomize();
 }
