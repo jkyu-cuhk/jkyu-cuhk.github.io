@@ -199,6 +199,12 @@ function resetGrid(gridSize) {
 		bottomGrid.innerHTML += "<button class=\"grid-arrow\" onclick=\"shiftDown("+(i)+")\">&#x21E9;</div> </button>\n";
 	}
 	}
+	if(mode == 0){
+	for(var i = 0; i < p; i++){
+		topGrid.innerHTML += "<button class=\"grid-arrow\" onclick=\"shiftAllUp()\"><div>All</br>&#x21E7;</div> </button>\n";
+		bottomGrid.innerHTML += "<button class=\"grid-arrow\" onclick=\"shiftAllDown()\">&#x21E9;</br>All</div> </button>\n";
+	}
+	}
 	for(var i = 0; i < p; i++){
 		leftGrid.innerHTML += "<button class=\"grid-arrow\" onclick=\"shiftLeft("+(i)+")\"><div>&#x21E6;</div> </button>\n";
 		rightGrid.innerHTML += "<button class=\"grid-arrow\" onclick=\"shiftRight("+(i)+")\"><div>&#x21E8;</div> </button>\n";
