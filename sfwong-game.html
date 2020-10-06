@@ -80,6 +80,15 @@
 			gap: 4px;
 			justify-content: center;
 		}
+		.grid-UL {
+			grid-column-start: 1;
+			grid-row-start: 1;
+			display: grid;
+			grid-template-rows: 80px;
+			grid-template-columns: 80px;
+			gap: 4px;
+			justify-content: center;
+		}
 		.grid-item {
 			grid-column-start: auto;
 			grid-row-start: auto;
@@ -168,12 +177,14 @@ function resetGrid(gridSize) {
 	var topGrid = document.getElementById("topGrid");
 	var bottomGrid = document.getElementById("bottomGrid");
 	var leftGrid = document.getElementById("leftGrid");
-	var rightGrid = document.getElementById("rightGrid");
+        var rightGrid = document.getElementById("rightGrid");
+	var ULGrid = document.getElementById("ULGrid");
 	centerGrid.innerHTML = "";
 	topGrid.innerHTML = "";
 	bottomGrid.innerHTML = "";
 	leftGrid.innerHTML = "";
-	rightGrid.innerHTML = "";
+        rightGrid.innerHTML = "";
+	ULGrid.innerHTML = "";
 	for(var i = 0; i < p; i++){
 		gridData[i] = Array(p);
 		for(var j = 0; j < p; j++){
@@ -209,7 +220,7 @@ function resetGrid(gridSize) {
 		leftGrid.innerHTML += "<button class=\"grid-arrow\" onclick=\"shiftLeft("+(i)+")\"><div>&#x21E6;</div> </button>\n";
 		rightGrid.innerHTML += "<button class=\"grid-arrow\" onclick=\"shiftRight("+(i)+")\"><div>&#x21E8;</div> </button>\n";
 	}
-	
+	ULGrid.innerHTML += "<button class=\"grid-button\" onclick=\"changeSize()\"><div>Change Grid Size</div> </button>\n";
 	showGrid();
 }
 function showGrid() {
