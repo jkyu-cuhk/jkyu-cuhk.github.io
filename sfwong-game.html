@@ -254,9 +254,7 @@ function resetGrid(gridSize) {
 		rightGrid.innerHTML += "<button class=\"grid-arrow\" onclick=\"shiftRight("+(i)+")\"><div>&#x21E8;</div> </button>\n";
 	}
 	nwGrid.innerHTML += "<button class=\"grid-button\" onclick=\"changeSize()\"><div>Change Grid Size</div> </button>\n";
-	neGrid.innerHTML += "<button class=\"grid-button\"
-			onclick=\"changeMode()\"><div
-			id="changeModeText">Change mode</br>Current: Easy</div> </button>\n";
+	neGrid.innerHTML += "<button class=\"grid-button\" onclick=\"changeMode()\"><div id="changeModeText">Change mode</br>Current: Easy</div> </button>\n";
 	swGrid.innerHTML += "<button class=\"grid-button\" onclick=\"randomize()\"><div>Shuffle Grid</div> </button>\n";
 	seGrid.innerHTML += "<button class=\"grid-button\" onclick=\"resetGrid(0)\"><div>Reset Grid</div> </button>\n";
 	showGrid();
