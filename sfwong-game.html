@@ -80,9 +80,36 @@
 			gap: 4px;
 			justify-content: center;
 		}
-		.grid-ul {
+		.grid-nw {
 			grid-column-start: 1;
 			grid-row-start: 1;
+			display: grid;
+			grid-template-rows: 80px;
+			grid-template-columns: 80px;
+			gap: 4px;
+			justify-content: center;
+		}
+		.grid-ne {
+			grid-column-start: 3;
+			grid-row-start: 1;
+			display: grid;
+			grid-template-rows: 80px;
+			grid-template-columns: 80px;
+			gap: 4px;
+			justify-content: center;
+		}
+		.grid-sw {
+			grid-column-start: 1;
+			grid-row-start: 3;
+			display: grid;
+			grid-template-rows: 80px;
+			grid-template-columns: 80px;
+			gap: 4px;
+			justify-content: center;
+		}
+		.grid-se {
+			grid-column-start: 3;
+			grid-row-start: 3;
 			display: grid;
 			grid-template-rows: 80px;
 			grid-template-columns: 80px;
@@ -178,13 +205,19 @@ function resetGrid(gridSize) {
 	var bottomGrid = document.getElementById("bottomGrid");
 	var leftGrid = document.getElementById("leftGrid");
         var rightGrid = document.getElementById("rightGrid");
-	var ulGrid = document.getElementById("ulGrid");
+	var neGrid = document.getElementById("neGrid");
+	var nwGrid = document.getElementById("nwGrid");
+	var seGrid = document.getElementById("seGrid");
+	var swGrid = document.getElementById("swGrid");
 	centerGrid.innerHTML = "";
 	topGrid.innerHTML = "";
 	bottomGrid.innerHTML = "";
 	leftGrid.innerHTML = "";
         rightGrid.innerHTML = "";
-	ulGrid.innerHTML = "";
+	neGrid.innerHTML = "";
+	nwGrid.innerHTML = "";
+	seGrid.innerHTML = "";
+	swGrid.innerHTML = "";
 	for(var i = 0; i < p; i++){
 		gridData[i] = Array(p);
 		for(var j = 0; j < p; j++){
@@ -220,7 +253,12 @@ function resetGrid(gridSize) {
 		leftGrid.innerHTML += "<button class=\"grid-arrow\" onclick=\"shiftLeft("+(i)+")\"><div>&#x21E6;</div> </button>\n";
 		rightGrid.innerHTML += "<button class=\"grid-arrow\" onclick=\"shiftRight("+(i)+")\"><div>&#x21E8;</div> </button>\n";
 	}
-	ulGrid.innerHTML += "<button class=\"grid-button\" onclick=\"changeSize()\"><div>Change Grid Size</div> </button>\n";
+	nwGrid.innerHTML += "<button class=\"grid-button\" onclick=\"changeSize()\"><div>Change Grid Size</div> </button>\n";
+	neGrid.innerHTML += "<button class=\"grid-button\"
+			onclick=\"changeMode()\"><div
+			id="changeModeText">Change mode</br>Current: Easy</div> </button>\n";
+	swGrid.innerHTML += "<button class=\"grid-button\" onclick=\"randomize()\"><div>Shuffle Grid</div> </button>\n";
+	seGrid.innerHTML += "<button class=\"grid-button\" onclick=\"resetGrid(0)\"><div>Reset Grid</div> </button>\n";
 	showGrid();
 }
 function showGrid() {
@@ -532,7 +570,13 @@ function randomize(){
 		</div>
 		<div id="rightGrid" class="grid-right">
 		</div>
-		<div id="ulGrid" class="grid-ul">
+		<div id="nwGrid" class="grid-nw">
+		</div>
+		<div id="neGrid" class="grid-ne">
+		</div>
+		<div id="swGrid" class="grid-sw">
+		</div>
+		<div id="seGrid" class="grid-se">
 		</div>
 	</div>
 	<div style="text-align: right; grid-column: 1 / 4;">v2.5</div>
