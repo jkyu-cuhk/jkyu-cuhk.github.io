@@ -262,7 +262,7 @@ function resetGrid(gridSize) {
 	swGrid.innerHTML += "<button class=\"grid-button\" onclick=\"randomize()\"><div>Shuffle Grid</div> </button>\n";
 	seGrid.innerHTML += "<button class=\"grid-button\" onclick=\"resetGrid(0)\"><div>Reset Grid</div> </button>\n";
 	showGrid();
-  $(".grid-item").on("tap",function(){
+  $("grid-item").on("tap",function(){
     alert("You tapped!");
   });   
 }
