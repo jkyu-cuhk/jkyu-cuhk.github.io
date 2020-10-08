@@ -175,7 +175,8 @@
 			grid-template-columns: 80px;
 			gap: 4px;
 			justify-content: center;
-		}
+}
+div.test {background-color: #108040;}
 	</style>
 	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script>
@@ -260,11 +261,12 @@ function resetGrid(gridSize) {
 	neGrid.innerHTML += "<button class=\"grid-button\" onclick=\"changeMode()\"><div>Change Mode</br>Current: Easy</div> </button>\n";
 	}
 	swGrid.innerHTML += "<button class=\"grid-button\" onclick=\"randomize()\"><div>Shuffle Grid</div> </button>\n";
-	seGrid.innerHTML += "<button class=\"grid-button\" onclick=\"resetGrid(0)\"><div>Reset Grid</div> </button>\n";
+	seGrid.innerHTML += "<button class=\"grid-button\" onclick=\"resetGrid(0)\"><div class=\"test\">Reset Grid</div> </button>\n";
 	showGrid();
-  $("grid-item").on("tap",function(){
+$(function(){
+  $("div.test").on("tap",function(){
     alert("You tapped!");
-  });   
+  }); });  
 }
 function showGrid() {
 	$( "div.grid-item" ).removeClass("rainbow-background");
@@ -553,7 +555,7 @@ function randomize(){
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script>
 $(document).on("pagecreate",function(){
-  $("grid-item").on("tap",function(){
+  $("div.test").on("tap",function(){
     alert("You tapped!");
   });                       
 });
