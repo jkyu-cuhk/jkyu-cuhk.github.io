@@ -175,10 +175,32 @@
 			grid-template-columns: 80px;
 			gap: 4px;
 			justify-content: center;
+		}.box
+{
+	margin-top:20px;
+	margin-bottom:20px;
+	max-width:768px;
+	height:300px;
+	
+	padding: 10px;
+	background-color: #EEE;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	
+	text-align:center;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 36px;
+	
+	overflow:hidden;
 }
-div.test {background-color: #108040;}
 	</style>
 	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.touchSwipe.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+
 <script>
 var p = 7;
 var gridData;
@@ -261,12 +283,8 @@ function resetGrid(gridSize) {
 	neGrid.innerHTML += "<button class=\"grid-button\" onclick=\"changeMode()\"><div>Change Mode</br>Current: Easy</div> </button>\n";
 	}
 	swGrid.innerHTML += "<button class=\"grid-button\" onclick=\"randomize()\"><div>Shuffle Grid</div> </button>\n";
-	seGrid.innerHTML += "<button class=\"grid-button\" onclick=\"resetGrid(0)\"><div class=\"test\">Reset Grid</div> </button>\n";
+	seGrid.innerHTML += "<button class=\"grid-button\" onclick=\"resetGrid(0)\"><div>Reset Grid</div> </button>\n";
 	showGrid();
-$(function(){
-  $("div.test").on("tap",function(){
-    alert("You tapped!");
-  }); });  
 }
 function showGrid() {
 	$( "div.grid-item" ).removeClass("rainbow-background");
@@ -552,19 +570,40 @@ function randomize(){
 	showGrid();
 }
 </script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<script>
-$(document).on("pagecreate",function(){
-  $("div.test").on("tap",function(){
-    alert("You tapped!");
-  });                       
-});
-</script>
 </head>
 <body onload="resetGrid(3)">
 	<div class="main">
 	<div class="control">
 	</div>
+			<script id='code_1'>
+				$(function() {			
+					//Enable swiping...
+					$("#block-1-1").swipe( {
+						//Generic swipe handler for all directions
+						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+								$("#test1").text("You swiped " + direction );
+						},
+						//Default is 75px, set to 0 for demo so any distance triggers swipe
+					   threshold:0
+					});
+					$("#seGrid").swipe( {
+						//Generic swipe handler for all directions
+						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+								$("#test1").text("You swiped " + direction );
+						},
+						//Default is 75px, set to 0 for demo so any distance triggers swipe
+					   threshold:0
+					});
+					$("#test1").swipe( {
+						//Generic swipe handler for all directions
+						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+							$("#test1").text("You swiped " + direction );	
+						},
+						//Default is 75px, set to 0 for demo so any distance triggers swipe
+					   threshold:0
+					});
+				});
+			</script>
 	<div class="grid-main">
 		<div id="centerGrid" class="grid-center">
 		</div>
@@ -586,6 +625,8 @@ $(document).on("pagecreate",function(){
 		</div>
 	</div>
 	<div style="text-align: right; grid-column: 1 / 4;">v2.5</div>
-</div>
+	</div>
+		<div id="test1" class="box">Swipe me</div>
+
 </body>
 </html>
