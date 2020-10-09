@@ -289,7 +289,19 @@ function resetGrid(gridSize) {
 	swGrid.innerHTML += "<button class=\"grid-button\" onclick=\"randomize()\"><div>Shuffle Grid</div> </button>\n";
 	seGrid.innerHTML += "<button class=\"grid-button\" onclick=\"resetGrid(0)\"><div>Reset Grid</div> </button>\n";
 	showGrid();
+	if (mode==0) {
+		for(var i = 0; i < p; i++){
+		for(var j = 0; j < p; j++){
+			var str="$(function(){$(\"#block-"+i+"-"+j+
+	"\").swipe( {swipe:function(event, direction, distance,duration, fingerCount, fingerData){if (direction===\"left\") {shiftLeft("+i+")} if	(direction===\"right\") {shiftRight("+i+
+	")} if (direction===\"up\") {shiftAllUp()} if (direction===\"down\") {shiftAllDown("+
+	")}},threshold:10});});";
+	console.log(str);
+eval(str);
+		}
+	}
 
+	} else {
 	for(var i = 0; i < p; i++){
 		for(var j = 0; j < p; j++){
 			var str="$(function(){$(\"#block-"+i+"-"+j+
@@ -300,7 +312,7 @@ function resetGrid(gridSize) {
 eval(str);
 		}
 	}
-
+}
 }
 function showGrid() {
 	$( "div.grid-item" ).removeClass("rainbow-background");
