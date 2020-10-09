@@ -246,6 +246,16 @@ function resetGrid(gridSize) {
 		for(var j = 0; j < p; j++){
 			centerGrid.innerHTML += "<div id=\"block-"+i+"-"+j+"\" class=\"grid-item\" style=\"grid-row-start: "+(i+2)+"; grid-column-start: "+(j+2)+";\"><span>"+0+"</span></div>\n";
 			gridData[i][j] = i*p+j+1;
+								$(function() {			
+					//Enable swiping...
+					$("#block-"+i+"-"+j).swipe( {
+						//Generic swipe handler for all directions
+						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+								$("#test1").text("You swiped " + direction );	shiftLeft(1);
+						},
+					   threshold:10
+					});
+			});
 		}
 	}
 	for(var i = 0; i < p; i++){
@@ -283,8 +293,27 @@ function resetGrid(gridSize) {
 	neGrid.innerHTML += "<button class=\"grid-button\" onclick=\"changeMode()\"><div>Change Mode</br>Current: Easy</div> </button>\n";
 	}
 	swGrid.innerHTML += "<button class=\"grid-button\" onclick=\"randomize()\"><div>Shuffle Grid</div> </button>\n";
-	seGrid.innerHTML += "<button class=\"grid-button\" onclick=\"\"><div>Reset Grid</div> </button>\n";
+	seGrid.innerHTML += "<button class=\"grid-button\" onclick=\"resetGrid(0)\"><div>Reset Grid</div> </button>\n";
 	showGrid();
+
+	for(var i = 0; i < p; i++){
+		for(var j = 0; j < p; j++){
+			$(function() {			
+			$("#block-"+i+"-"+j).swipe( {
+			//Generic swipe handler for all directions
+			swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+                        $("#test1").text("You swiped " + direction+i+j );
+  	                if (direction==="left") {shiftLeft(i)}
+  	                if (direction==="right") {shiftRight(i)}
+  	                if (direction==="up") {shiftUp(j)}
+  	                if (direction==="down") {shiftDown(j)}	
+			},
+			threshold:10
+			});
+			});
+		}
+	}
+
 }
 function showGrid() {
 	$( "div.grid-item" ).removeClass("rainbow-background");
@@ -630,6 +659,36 @@ function randomize(){
 		<div id="test1" class="box">Swipe me</div>
 	</div>
 		<div id="test2" class="box">Test</div>
+			<script id='code_1'>
+				$(function() {			
+					//Enable swiping...
+					$("#block-1-1").swipe( {
+						//Generic swipe handler for all directions
+						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+								$("#test1").text("You swiped " + direction );	shiftLeft(1);
+						},
+						//Default is 75px, set to 0 for demo so any distance triggers swipe
+					   threshold:0
+					});
+					$("#seGrid").swipe( {
+						//Generic swipe handler for all directions
+						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+						$("#test1").text("You swiped " + direction );
+	shiftLeft(1);
+						},
+						//Default is 75px, set to 0 for demo so any distance triggers swipe
+					   threshold:0
+					});
+					$("#test1").swipe( {
+						//Generic swipe handler for all directions
+						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+							$("#test1").text("You swiped " + direction );	
+						},
+						//Default is 75px, set to 0 for demo so any distance triggers swipe
+					   threshold:0
+					});
+				});
+			</script>
 
 </body>
 </html>
