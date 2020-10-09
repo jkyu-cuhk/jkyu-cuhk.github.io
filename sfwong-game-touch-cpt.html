@@ -229,7 +229,6 @@ function resetGrid(gridSize) {
 	"\").swipe( {swipe:function(event, direction, distance,duration, fingerCount, fingerData){if (direction===\"left\") {shiftLeft("+i+")} if	(direction===\"right\") {shiftRight("+i+
 	")} if (direction===\"up\") {shiftAllUp()} if (direction===\"down\") {shiftAllDown("+
 	")}},threshold:10});});";
-	console.log(str);
 eval(str);
 		}
 	}
@@ -241,7 +240,6 @@ eval(str);
 	"\").swipe( {swipe:function(event, direction, distance,duration, fingerCount, fingerData){if (direction===\"left\") {shiftLeft("+i+")} if	(direction===\"right\") {shiftRight("+i+
 	")} if (direction===\"up\") {shiftUp("+j+")} if (direction===\"down\") {shiftDown("+j+
 	")}},threshold:10});});";
-	console.log(str);
 eval(str);
 		}
 	}
