@@ -283,7 +283,7 @@ function resetGrid(gridSize) {
 	neGrid.innerHTML += "<button class=\"grid-button\" onclick=\"changeMode()\"><div>Change Mode</br>Current: Easy</div> </button>\n";
 	}
 	swGrid.innerHTML += "<button class=\"grid-button\" onclick=\"randomize()\"><div>Shuffle Grid</div> </button>\n";
-	seGrid.innerHTML += "<button class=\"grid-button\" onclick=\"resetGrid(0)\"><div>Reset Grid</div> </button>\n";
+	seGrid.innerHTML += "<button class=\"grid-button\" onclick=\"\"><div>Reset Grid</div> </button>\n";
 	showGrid();
 }
 function showGrid() {
@@ -303,7 +303,7 @@ function showGrid() {
 		$( "div.grid-item" ).addClass("rainbow-background");
 	}	
 }
-function shiftLeft(row) {
+function shiftLeft(row) {$("#test2").text("Shift Left " + row );	
 	if (animationRowLock[row] == 0 && animationMainRowLock == 0){
 	$( "div.grid-item" ).removeClass("rainbow-background");
 	animationRowLock[row]++;
@@ -578,10 +578,10 @@ function randomize(){
 			<script id='code_1'>
 				$(function() {			
 					//Enable swiping...
-					$("#block-1-1").swipe( {
+					$("#centerGrid").swipe( {
 						//Generic swipe handler for all directions
 						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-								$("#test1").text("You swiped " + direction );
+								$("#test1").text("You swiped " + direction );	shiftLeft(1);
 						},
 						//Default is 75px, set to 0 for demo so any distance triggers swipe
 					   threshold:0
@@ -589,7 +589,8 @@ function randomize(){
 					$("#seGrid").swipe( {
 						//Generic swipe handler for all directions
 						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-								$("#test1").text("You swiped " + direction );
+						$("#test1").text("You swiped " + direction );
+	shiftLeft(1);
 						},
 						//Default is 75px, set to 0 for demo so any distance triggers swipe
 					   threshold:0
@@ -627,6 +628,8 @@ function randomize(){
 	<div style="text-align: right; grid-column: 1 / 4;">v2.5</div>
 	</div>
 		<div id="test1" class="box">Swipe me</div>
+	</div>
+		<div id="test2" class="box">Test</div>
 
 </body>
 </html>
