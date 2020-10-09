@@ -298,19 +298,13 @@ function resetGrid(gridSize) {
 
 	for(var i = 0; i < p; i++){
 		for(var j = 0; j < p; j++){
-			$(function() {			
-			$("#block-"+i+"-"+j).swipe( {
-			//Generic swipe handler for all directions
-			swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-                        $("#test1").text("You swiped " + direction+i+j );
-  	                if (direction==="left") {shiftLeft(i)}
-  	                if (direction==="right") {shiftRight(i)}
-  	                if (direction==="up") {shiftUp(j)}
-  	                if (direction==="down") {shiftDown(j)}	
-			},
-			threshold:10
-			});
-			});
+			var str="$(function(){$(\"#block-"+i+"-"+j+
+	"\").swipe( {swipe:function(event, direction, distance,duration, fingerCount, fingerData){$(\"#test1\").text(\"You swiped \"+direction+"+i+"-"+j+
+	" );if (direction===\"left\") {shiftLeft("+i+")} if	(direction===\"right\") {shiftRight("+i+
+	")} if (direction===\"up\") {shiftUp("+j+")} if (direction===\"down\") {shiftDown("+j+
+	")}},threshold:10});});";
+	console.log(str);
+eval(str);
 		}
 	}
 
